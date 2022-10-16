@@ -4,6 +4,7 @@ import Main from '../Main/Main';
 import Profile from '../Profile/Profile';
 import Register from '../Register/Register';
 import Login from '../Login/Login';
+import Movies from '../Movies/Movies';
 
 function App() {
   return (
@@ -12,7 +13,9 @@ function App() {
       <Route path='/' element={
         <Main />
       }></Route>
-      <Route path='/movies'></Route>
+      <Route path='/movies' element={
+        <Movies />
+      }></Route>
       <Route path='/saved-movies'></Route>
       <Route path='/profile' element={
         <Profile />
