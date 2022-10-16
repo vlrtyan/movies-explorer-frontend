@@ -1,0 +1,4 @@
+.card-list{
+    width: calc(100% - 70px * 2);
+    margin: 70px auto 80px;
+}

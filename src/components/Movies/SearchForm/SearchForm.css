@@ -1,10 +1,12 @@
 .search {
     width: calc(100% - 70px * 2);
-    margin: 80px auto 83px;
+    margin: 80px auto 10px;
+    padding-bottom: 83px;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    border-bottom: solid 1px rgba(0, 0, 0, .2);
 }
 
 .search__form {
