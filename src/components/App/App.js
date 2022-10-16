@@ -3,6 +3,7 @@ import { Route, Routes, useNavigate } from 'react-router-dom';
 import Main from '../Main/Main';
 import Profile from '../Profile/Profile';
 import Register from '../Register/Register';
+import Login from '../Login/Login';
 
 function App() {
   return (
@@ -19,7 +20,9 @@ function App() {
       <Route path='/signup' element={
         <Register />
       }></Route>
-      <Route path='/signin'></Route>
+      <Route path='/signin' element={
+        <Login />
+      }></Route>
     </Routes>
   );
 }
