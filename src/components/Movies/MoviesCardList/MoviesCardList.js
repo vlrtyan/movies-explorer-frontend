@@ -5,13 +5,26 @@ import MoviesCard from '../MoviesCard/MoviesCard';
 function MoviesCardList(props) {
     return (
         <section className='card-list'>
-            <MoviesCard />
+            <div className='card-list__grid'>
+                <MoviesCard />
+                <MoviesCard />
+                <MoviesCard />
+                <MoviesCard />
+                <MoviesCard />
+                <MoviesCard />
+                <MoviesCard />
+                <MoviesCard />
+                <MoviesCard />
+                <MoviesCard />
+                <MoviesCard />
+            </div>
             {/* {props.cards.map((card) => (
                 <MoviesCard 
                 card={card}
                 key={card._id}
                 />
             ))} */}
+            <button className='card-list__button' type='button'>Ещё</button>
         </section>
     )
 }
