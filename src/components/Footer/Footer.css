@@ -50,6 +50,11 @@
     color: black;
 }
 
+.copyright__link:hover {
+    opacity: 0.8;
+    transition: 0.5s;
+}
+
 .copyright__link:last-child {
     margin-right: 0;
 }

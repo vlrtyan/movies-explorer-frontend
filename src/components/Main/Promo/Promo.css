@@ -38,6 +38,11 @@
     margin: 0 30px 0 auto;
 }
 
+.promo__signup-button:hover{
+    opacity: 0.8;
+    transition: 0.5s;
+}
+
 .promo__singnin-button {
     font-weight: 500;
     font-size: 12px;

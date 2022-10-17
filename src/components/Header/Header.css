@@ -21,6 +21,11 @@
     text-decoration: none;
 }
 
+.header__link:hover {
+    opacity: 0.8;
+    transition: 0.5s;
+}
+
 .header__link_type_films {
     font-weight: 500;
     margin-right: 16px;

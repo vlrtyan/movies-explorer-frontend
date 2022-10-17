@@ -73,6 +73,12 @@
     padding-bottom: 15px;
     border-radius: 3px;
     margin: 0 0 16px 0;
+    cursor: pointer;
+}
+
+.register__submit-button:hover{
+    opacity: 0.8;
+    transition: 0.5s;
 }
 
 .redirect {
@@ -96,4 +102,9 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 1;
+}
+
+.redirect__link:hover{
+    opacity: 0.8;
+    transition: 0.5s;
 }
