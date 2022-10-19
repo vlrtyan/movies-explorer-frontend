@@ -38,9 +38,9 @@ function Register() {
                 ></input>
                 <p className='register__error-message'>Что-то пошло не так...</p>
                 <button className='register__submit-button' type='submit'>Зарегистрироваться</button>
-                <div className='redirect'>
-                    <p className='redirect__text'>Уже зарегистрированы? </p>
-                    <Link to='/signin' className='redirect__link'>Войти</Link>
+                <div className='register-redirect'>
+                    <p className='register-redirect__text'>Уже зарегистрированы? </p>
+                    <Link to='/signin' className='register-redirect__link'>Войти</Link>
                 </div>
             </form>
         </div>

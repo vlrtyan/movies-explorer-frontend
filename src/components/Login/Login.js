@@ -28,9 +28,9 @@ function Login() {
                     required
                 ></input>
                 <button className='login__submit-button' type='submit'>Войти</button>
-                <div className='redirect'>
-                    <p className='redirect__text'>Ещё не зарегистрированы? </p>
-                    <Link to='/signup' className='redirect__link'>Регистрация</Link>
+                <div className='login-redirect'>
+                    <p className='login-redirect__text'>Ещё не зарегистрированы? </p>
+                    <Link to='/signup' className='login-redirect__link'>Регистрация</Link>
                 </div>
             </form>
         </div>

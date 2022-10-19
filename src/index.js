@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
+import './vendor/normalize.css';
 import App from './components/App/App.js';
 import { HashRouter } from 'react-router-dom';
 

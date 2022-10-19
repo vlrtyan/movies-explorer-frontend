@@ -53,14 +53,6 @@
     color: #FF4062;
 }
 
-.login__error-message {
-    margin: 0 auto 69px 0;
-    font-weight: 400;
-    font-size: 10px;
-    line-height: 12px;
-    color: #FF4062;
-}
-
 .login__submit-button {
     width: 100%;
     border: none;
@@ -76,7 +68,71 @@
     cursor: pointer;
 }
 
-.login__submit-button:hover{
+.login__submit-button:hover {
     opacity: 0.8;
     transition: 0.5s;
+}
+
+.login-redirect {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-self: center;
+}
+
+.login-redirect__text {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1;
+    color: #A0A0A0;
+    margin: 0 6px 0 0;
+}
+
+.login-redirect__link {
+    text-decoration: none;
+    color: black;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1;
+}
+
+.login-redirect__link:hover{
+    opacity: 0.8;
+    transition: 0.5s;
+}
+
+@media screen and (max-width: 1280px) {
+    .login {
+        width: calc(100% - 186px * 2);
+        margin: 232px auto;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .login {
+        width: calc(100% - 30px * 2);
+        margin: 56px auto 30px;
+    }
+
+    .login__logo {
+        width: 38px;
+        height: 38px;
+        margin: 0 auto 50px;
+    }
+
+    .login__greeting {
+        margin: 0 auto 80px;
+    }
+
+    .login__input:last-of-type {
+        margin-bottom: 267px;
+    }
+
+    .login-redirect__text {
+        font-size: 12px;
+    }
+    
+    .login-redirect__link {
+        font-size: 12px;
+    }
 }
