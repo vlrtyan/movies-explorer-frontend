@@ -29,3 +29,27 @@
     text-decoration: none;
     color: black;
 }
+
+@media screen and (max-width: 1279px) {
+    .not-found {
+        margin: 408px auto 222px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .not-found {
+        margin: 329px auto 30px;
+    }
+
+    .not-found__title {
+        margin-bottom: 10px;
+        font-size: 80px;
+        line-height: 1;
+    }
+
+    .not-found__message {
+        margin-bottom: 284px;
+        font-size: 12px;
+        line-height: 1;
+    }
+}

@@ -75,7 +75,7 @@
     object-fit: cover;
 }
 
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 1279px) {
     .about-me {
         width: calc(100% - 50px * 2);
     }
@@ -110,7 +110,7 @@
     }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
     .about-me {
         width: calc(100% - 17px * 2);
     }

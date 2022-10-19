@@ -50,7 +50,7 @@
     transition: 0.5s;
 }
 
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 1279px) {
     .portfolio {
         width: calc(100% - 50px * 2);
         margin-bottom: 125px;
@@ -62,7 +62,7 @@
     }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
     .portfolio {
         width: calc(100% - 14px * 2);
         margin-bottom: 70px;

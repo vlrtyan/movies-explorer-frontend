@@ -62,7 +62,7 @@
     margin: 0 70px 60px auto;
 }
 
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 1279px) {
     .promo__header {
         width: calc(100% - 30px * 2);
         margin-bottom: 300px;
@@ -80,7 +80,7 @@
     }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
     .promo {
         overflow: hidden;
     }
