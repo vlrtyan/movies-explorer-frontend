@@ -7,15 +7,15 @@ function Portfolio() {
             <p className='portfolio__header'>Портфолио</p>
             <div className='project'>
                 <p className='project__name'>Статичный сайт</p>
-                <a className='project__link' href='https://github.com/vlrtyan/how-to-learn' target='_blank'></a>
+                <a className='project__link' href='https://github.com/vlrtyan/how-to-learn' target='_blank'>&#8599;</a>
             </div>
             <div className='project'>
                 <p className='project__name'>Адаптивный сайт</p>
-                <a className='project__link' href='https://github.com/vlrtyan/russian-travel' target='_blank'></a>
+                <a className='project__link' href='https://github.com/vlrtyan/russian-travel' target='_blank'>&#8599;</a>
             </div>
             <div className='project'>
                 <p className='project__name'>Одностраничное приложение</p>
-                <a className='project__link' href='https://github.com/vlrtyan/react-mesto-api-full' target='_blank'></a>
+                <a className='project__link' href='https://github.com/vlrtyan/react-mesto-api-full' target='_blank'>&#8599;</a>
             </div>
         </div>
     )

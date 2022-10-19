@@ -5,11 +5,11 @@ import avatar from '../../../images/avatar.jpg';
 
 function AboutMe() {
     return (
-        <div className='about-project'>
-            <h2 className='about-project__header about-me__header'>Студентка</h2>
-            <div className='about-me'>
+        <div className='about-me'>
+            <h2 className='about-me__header'>Студентка</h2>
+            <div className='about-me__container'>
                 <div className='about-me__info'>
-                    <p className='about-me__name'>Валерия Тян</p>
+                    <p className='about-me__name'>Валерия</p>
                     <p className='about-me__occupation'>Фронтенд-разработчик, 23 года</p>
                     <p className='about-me__bio'>Я родился и живу в Саратове, закончил факультет экономики СГУ. У меня есть жена
                         и дочь. Я люблю слушать музыку, а ещё увлекаюсь бегом. Недавно начал кодить. С 2015 года работал в компании «СКБ Контур». После того, как прошёл курс по веб-разработке, начал заниматься фриланс-заказами и ушёл с постоянной работы.</p>

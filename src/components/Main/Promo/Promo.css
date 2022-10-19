@@ -38,7 +38,7 @@
     margin: 0 30px 0 auto;
 }
 
-.promo__signup-button:hover{
+.promo__signup-button:hover {
     opacity: 0.8;
     transition: 0.5s;
 }
@@ -56,8 +56,50 @@
 }
 
 .promo__image {
-    max-width: 722px;
-    max-height: 244px;
+    width: 722px;
+    height: 244px;
     opacity: 0.7;
     margin: 0 70px 60px auto;
+}
+
+@media screen and (max-width: 1280px) {
+    .promo__header {
+        width: calc(100% - 30px * 2);
+        margin-bottom: 300px;
+    }
+
+    .promo__title {
+        margin: 0 auto 140px;
+        text-align: center;
+    }
+
+    .promo__image {
+        width: 680px;
+        height: 230px;
+        margin: 0 auto 70px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .promo {
+        overflow: hidden;
+    }
+
+    .promo__header {
+        width: calc(100% - 14px * 2);
+        margin-bottom: 183px;
+    }
+
+    .promo__title {
+        width: calc(100% - 10px * 2);
+        margin-bottom: 60px;
+        font-size: 29px;
+        line-height: 39px;
+    }
+
+    .promo__image {
+        position: relative;
+        right: 50%;
+        margin-bottom: 40px;
+    }
 }

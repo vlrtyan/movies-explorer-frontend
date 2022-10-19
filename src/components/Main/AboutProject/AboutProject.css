@@ -32,10 +32,11 @@
 }
 
 .description__block:last-child {
-    margin-right: 0;
+    margin: 0;
 }
 
 .description__point {
+    margin: 0 auto 26px 0;
     font-weight: 400;
     font-size: 20px;
     line-height: 24px;
@@ -43,6 +44,7 @@
 }
 
 .description__explanation {
+    margin: 0;
     font-weight: 400;
     font-size: 14px;
     line-height: 1.43;
@@ -100,4 +102,95 @@
     line-height: 17px;
     color: #A0A0A0;
     margin: 0;
+}
+
+@media screen and (max-width: 1280px) {
+    .about-project {
+        width: calc(100% - 50px * 2);
+    }
+
+    .about-project__header {
+        margin-top: 90px;
+    }
+
+    .description {
+        margin-bottom: 60px;
+        flex-direction: row;
+        margin: 0 auto 110px;
+        align-items: flex-start;
+        justify-content: center;
+
+    }
+
+    .description__block {
+        margin-right: 30px;
+    }
+
+    .chart {
+        margin-bottom: 90px;
+    }
+
+    .chart__task {
+        font-weight: 400;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .about-project {
+        width: calc(100% - 18px * 2);
+    }
+
+    .about-project__header {
+        margin-top: 70px;
+        margin-bottom: 60px;
+        padding-bottom: 28px;
+        font-size: 18px;
+        line-height: 22px;
+    }
+
+    .description {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 60px;
+    }
+
+    .description__block {
+        margin-right: 0;
+        margin-bottom: 56px;
+    }
+
+    .description__point {
+        margin-bottom: 16px;
+        font-size: 18px;
+        line-height: 22px;
+    }
+
+    .description__explanation {
+        font-size: 11px;
+        line-height: 1.45;
+    }
+
+    .chart {
+        margin-bottom: 70px;
+    }
+
+    .chart__duration {
+        font-size: 11px;
+        line-height: 13px;
+        margin-bottom: 10px;
+        padding: 11px 10px;
+    }
+
+    .chart__element_color_black {
+        width: calc(35% - 10px * 2);
+    }
+
+    .chart__element_color_grey {
+        width: calc(65% - 10px * 2);
+    }
+
+    .chart__task {
+        font-size: 11px;
+        line-height: 13px;
+    }
 }
