@@ -69,3 +69,37 @@
 .profile_button_type_logout {
     color: #FF4062;
 }
+
+@media screen and (max-width: 1279px) {
+    .profile {
+        margin-bottom: 269px;
+        width: calc(100% - 30px * 2);
+    }
+
+    .profile__greeting {
+        margin: 236px auto 96px;
+    }
+
+    .profile__form {
+        margin-bottom: 210px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .profile {
+        margin-bottom: 40px;
+    }
+
+    .profile__greeting {
+        margin: 70px auto 80px;
+    }
+
+    .profile__form {
+        margin-bottom: 379px;
+        width: 260px;
+    }
+
+    .profile__button {
+        font-size: 12px;
+    }
+}

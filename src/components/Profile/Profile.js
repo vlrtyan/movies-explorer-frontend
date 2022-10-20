@@ -1,9 +1,9 @@
 import React from 'react';
 import './Profile.css';
 import Header from '../Header/Header';
+import Navigation from '../Navigation/Navigation';
 
 function Profile() {
-    // прописать логику
     const name = 'Валерия';
     return (
         <div>
@@ -33,6 +33,7 @@ function Profile() {
                 <button className='profile__button profile_button_type_edit'>Редактировать</button>
                 <button className='profile__button profile_button_type_logout'>Выйти из аккаунта</button>
             </section>
+            <Navigation />
         </div>
     )
 }
