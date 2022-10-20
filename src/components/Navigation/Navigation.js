@@ -13,9 +13,9 @@ function Navigation() {
                     <Link className='navigation__link' to='/movies'>Фильмы</Link>
                     <Link className='navigation__link' to='/saved-movies'>Сохранённые фильмы</Link>
                 </div>
-                <div className='account-link'>
+                <div className='navigation__account'>
                     <Link className='navigation__link navigation__link_type_account' to='/profile'>Аккаунт</Link>
-                    <img className='account-link__icon' src={accountIcon} alt='Иконка человека' />
+                    <img className='navigation__account-icon' src={accountIcon} alt='Иконка человека' />
                 </div>
             </div>
         </nav>

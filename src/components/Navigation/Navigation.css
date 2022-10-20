@@ -61,7 +61,7 @@
     margin-right: 13px;
 }
 
-.account-link {
+.navigation__account {
     margin: 0 auto 99px;
     display: flex;
     flex-direction: row;
@@ -69,7 +69,7 @@
     justify-content: space-around;
 }
 
-.account-link__icon {
+.navigation__account-icon {
     width: 10px;
     height: 10px;
     padding: 10px;
@@ -86,7 +86,7 @@
         margin: 144px auto 444px;
     }
 
-    .account-link {
+    .navigation__account {
         margin-bottom: 48px;
     }
 
