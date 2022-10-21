@@ -99,7 +99,8 @@
 
     .promo__image {
         position: relative;
-        right: 50%;
-        margin-bottom: 40px;
+        left: 50%;
+        transform: translateX(-50%);
+        margin: 0 0 40px;
     }
 }

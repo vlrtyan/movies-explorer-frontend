@@ -1,7 +1,7 @@
 import './Promo.css';
 import { Link } from 'react-router-dom';
-import promoImage from '../../../images/promo-image.svg';
-import logo from '../../../images/logo.svg';
+import promoImage from '../../images/promo-image.svg';
+import logo from '../../images/logo.svg';
 
 
 function promo () {
@@ -12,7 +12,7 @@ function promo () {
                 <Link className='promo__signup-button' to='/signup'>Регистрация</Link>
                 <Link className='promo__singnin-button' to='/signin'>Войти</Link>
             </div>
-            <h1 className='promo__title'>Учебный проект студентки факультета Веб-разработки.</h1>
+            <h1 className='promo__title'>Учебный проект студентки факультета Веб&#8209;разработки.</h1>
             <img className='promo__image' src={promoImage} alt='Спираль'/>
         </div>
     )

@@ -48,7 +48,7 @@
 }
 
 .movies-card__save-button_type_remove {
-    background-image: url(../../../images/card-button-remove.svg);
+    background-image: url(../../images/card-button-remove.svg);
     border: none;
     background-repeat: no-repeat;
     background-position: center;
