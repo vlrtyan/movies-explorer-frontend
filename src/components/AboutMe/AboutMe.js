@@ -3,6 +3,7 @@ import './AboutMe.css';
 import avatar from '../../images/avatar.jpg';
 
 function AboutMe() {
+    //написать био
     return (
         <div className='about-me'>
             <h2 className='about-me__header'>Студентка</h2>
