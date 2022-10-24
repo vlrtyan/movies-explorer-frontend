@@ -33,7 +33,7 @@ function Profile() {
                 <button className='profile__button profile_button_type_edit'>Редактировать</button>
                 <button className='profile__button profile_button_type_logout'>Выйти из аккаунта</button>
             </section>
-            {/* <Navigation /> */}
+            <Navigation />
         </div>
     )
 }

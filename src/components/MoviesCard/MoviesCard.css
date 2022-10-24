@@ -28,7 +28,7 @@
     margin: 0;
     font-weight: 500;
     font-size: 13px;
-    line-height: 1;
+    line-height: 16px;
 }
 
 .movies-card__save-button {
@@ -63,4 +63,24 @@
     line-height: 13px;
     color: #A0A0A0;
     margin: 0 auto 14px 12px;
+}
+
+@media screen and (max-width: 1279px) {
+    .movies-card {
+        width: 339px;
+    }
+
+    .movies-card__image {
+        height: 190px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .movies-card {
+        width: 300px;
+    }
+
+    .movies-card__image {
+        height: 168px;
+    }
 }

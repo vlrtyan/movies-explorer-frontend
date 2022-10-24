@@ -9,6 +9,10 @@
     justify-content: flex-end;
 }
 
+.navigation_hidden{
+    display: none;
+}
+
 .navigation__container {
     background-color: white;
     height: 100%;
