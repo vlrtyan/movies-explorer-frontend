@@ -5,7 +5,7 @@ import accountIcon from '../../images/account-icon.svg';
 
 function Navigation() {
     return (
-        <nav className='navigation navigation_hidden'>
+        <nav className='navigation navigation_opened'>
             <div className='navigation__container'>
                 <button className='navigation__close-button' type='button'></button>
                 <div className='navigation__menu'>

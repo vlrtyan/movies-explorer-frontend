@@ -49,10 +49,20 @@
     margin: 0 7px 0 auto;
 }
 
+.search__icon:hover {
+    opacity: 0.8;
+    transition: 0.5s;
+}
+
 .switch {
     display: flex;
     flex-direction: row;
     align-items: center;
+}
+
+.switch:hover {
+    opacity: 0.8;
+    transition: 0.5s;
 }
 
 .switch__name {

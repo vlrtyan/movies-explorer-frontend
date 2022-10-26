@@ -12,6 +12,7 @@ function SearchForm() {
                         name='movie'
                         id='movie'
                         placeholder='Фильм'
+                        required
                     />
                     <button className='search__icon' type='submit'></button>
                 </div>

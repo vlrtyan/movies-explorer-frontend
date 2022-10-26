@@ -19,7 +19,7 @@ function Header() {
                     <img className='account-link__icon' src={accountIcon} alt='Иконка человека' />
                 </div>
             </nav>
-            <img className='header__menu-button' src={menuIcon} alt='' />
+            <img className='header__menu-button' src={menuIcon} alt='Иконка "Гамбургер"' />
         </header>
     )
 }
