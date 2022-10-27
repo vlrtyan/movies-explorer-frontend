@@ -5,7 +5,7 @@
 }
 
 .register {
-    width: calc(100% - 442px * 2);
+    width: 396px;
     margin: 70px auto;
     display: flex;
     flex-direction: column;
@@ -111,14 +111,13 @@
 
 @media screen and (max-width: 1279px) {
     .register {
-        width: calc(100% - 186px * 2);
         margin: 232px auto;
     }
 }
 
 @media screen and (max-width: 767px) {
     .register {
-        width: calc(100% - 30px * 2);
+        width: 260px;
         margin: 56px auto 30px;
     }
 
