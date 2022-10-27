@@ -3,7 +3,7 @@ import './SearchForm.css';
 
 function SearchForm() {
     return (
-        <div className='search'>
+        <section className='search'>
             <form className='search__form'>
                 <div className='search__bar'>
                     <input
@@ -22,7 +22,7 @@ function SearchForm() {
                     <label className='switch__slider' htmlFor='slider'></label>
                 </div>
             </form>
-        </div>
+        </section>
     )
 }
 

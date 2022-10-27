@@ -5,7 +5,7 @@ import avatar from '../../images/avatar.jpg';
 function AboutMe() {
     //написать био
     return (
-        <div className='about-me'>
+        <section className='about-me'>
             <h2 className='about-me__header'>Студентка</h2>
             <div className='about-me__container'>
                 <div className='about-me__info'>
@@ -17,7 +17,7 @@ function AboutMe() {
                 </div>
                 <img className='about-me__photo' src={avatar} alt='Валерия Тян' />
             </div>
-        </div>
+        </section>
     )
 }
 

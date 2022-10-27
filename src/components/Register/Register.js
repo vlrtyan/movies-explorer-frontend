@@ -5,7 +5,7 @@ import logo from '../../images/logo.svg';
 
 function Register() {
     return (
-        <div className='register'>
+        <main className='register'>
             <img className='register__logo' src={logo} alt='Буква С' />
             <p className='register__greeting'>Добро пожаловать!</p>
             <form className='register__form'>
@@ -43,7 +43,7 @@ function Register() {
                     <Link to='/signin' className='register-redirect__link'>Войти</Link>
                 </div>
             </form>
-        </div>
+        </main>
     )
 }
 

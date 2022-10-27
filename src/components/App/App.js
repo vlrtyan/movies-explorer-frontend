@@ -1,7 +1,9 @@
 import React from 'react';
 import './App.css';
 import '../../vendor/fonts/inter-web/inter.css';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
+import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
 import Main from '../Main/Main';
 import Profile from '../Profile/Profile';
 import Register from '../Register/Register';
@@ -14,29 +16,36 @@ import Navigation from '../Navigation/Navigation';
 function App() {
   return (
     <>
-      <Routes>
-        <Route path='/' element={
+      <Switch>
+        <Route exact path='/'>
+          <Header />
           <Main />
-        }></Route>
-        <Route path='/movies' element={
+          <Footer />
+        </Route>
+        <Route path='/movies'>
+          <Header />
           <Movies />
-        }></Route>
-        <Route path='/saved-movies' element={
+          <Footer />
+        </Route>
+        <Route path='/saved-movies'>
+          <Header />
           <SavedMovies />
-        }></Route>
-        <Route path='/profile' element={
+          <Footer />
+        </Route>
+        <Route path='/profile'>
+          <Header />
           <Profile />
-        }></Route>
-        <Route path='/signup' element={
+        </Route>
+        <Route path='/signup'>
           <Register />
-        }></Route>
-        <Route path='/signin' element={
+        </Route>
+        <Route path='/signin'>
           <Login />
-        }></Route>
-        <Route path='*' element={
+        </Route>
+        <Route path='*'>
           <PageNotFound />
-        }></Route>
-      </Routes>
+        </Route>
+      </Switch>
       <Navigation />
     </>
   );

@@ -4,7 +4,7 @@ import MoviesCard from '../MoviesCard/MoviesCard';
 
 function MoviesCardList(props) {
     return (
-        <section className='card-list'>
+        <main className='card-list'>
             <div className='card-list__grid'>
                 <MoviesCard />
                 <MoviesCard />
@@ -25,7 +25,7 @@ function MoviesCardList(props) {
                 />
             ))} */}
             <button className='card-list__button' type='button'>Ещё</button>
-        </section>
+        </main>
     )
 }
 

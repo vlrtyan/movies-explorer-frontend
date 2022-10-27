@@ -5,7 +5,7 @@ import accountIcon from '../../images/account-icon.svg';
 
 function Navigation() {
     return (
-        <nav className='navigation navigation_opened'>
+        <section className='navigation'>
             <div className='navigation__container'>
                 <button className='navigation__close-button' type='button'></button>
                 <div className='navigation__menu'>
@@ -18,7 +18,7 @@ function Navigation() {
                     <img className='navigation__account-icon' src={accountIcon} alt='Иконка человека' />
                 </div>
             </div>
-        </nav>
+        </section>
     )
 }
 
