@@ -6,25 +6,14 @@ function MoviesCardList(props) {
     return (
         <main className='card-list'>
             <div className='card-list__grid'>
-                <MoviesCard />
-                <MoviesCard />
-                <MoviesCard />
-                <MoviesCard />
-                <MoviesCard />
-                <MoviesCard />
-                <MoviesCard />
-                <MoviesCard />
-                <MoviesCard />
-                <MoviesCard />
-                <MoviesCard />
-            </div>
-            {/* {props.cards.map((card) => (
+                {props.moviesOnScreen.map((movie) => (
                 <MoviesCard 
-                card={card}
-                key={card._id}
+                movie={movie}
+                key={movie.id}
                 />
-            ))} */}
-            <button className='card-list__button' type='button'>Ещё</button>
+            ))}
+            </div>
+            <button className='card-list__button' type='button' onClick={props.onShowMore}>Ещё</button>
         </main>
     )
 }
