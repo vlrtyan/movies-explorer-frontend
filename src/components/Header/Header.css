@@ -1,0 +1,158 @@
+.header {
+    padding: 18px 70px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header_color_pink {
+    background-color: #F3C1F8;
+}
+
+.header__navigation {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header__films {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: absolute;
+    top: 38px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.header__link {
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 1.38;
+    color: black;
+    text-decoration: none;
+}
+
+.header__link:hover {
+    opacity: 0.8;
+    transition: 0.5s;
+}
+
+.header__link_type_films {
+    font-weight: 500;
+    margin-right: 16px;
+}
+
+.header__link_type_saved-films {
+    font-weight: 400;
+}
+
+.header__link_type_account {
+    font-size: 14px;
+    line-height: 1.14;
+    margin-right: 13px;
+    margin-left: auto;
+}
+
+.account-link {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.account-link__icon {
+    width: 10px;
+    height: 10px;
+    padding: 10px;
+    background: #F9F9F9;
+    border-radius: 6px;
+}
+
+.logo {
+    width: 38px;
+    height: 38px;
+    margin: 0;
+}
+
+.logo:hover {
+    opacity: 0.8;
+    transition: 0.5s;
+}
+
+.header__menu-button {
+    display: none;
+    width: 44px;
+    height: 44px;
+    cursor: pointer;
+}
+
+.header__menu-button:hover {
+    opacity: 0.8;
+    transition: 0.5s;
+}
+
+.header__signup-button {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    text-decoration: none;
+    color: black;
+    margin: 0 30px 0 auto;
+}
+
+.header__signup-button:hover {
+    opacity: 0.8;
+    transition: 0.5s;
+}
+
+.header__singnin-button {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    color: white;
+    background-color: black;
+    padding: 8px 20px;
+    text-decoration: none;
+    border-radius: 3px;
+    margin: 0;
+}
+
+@media screen and (max-width: 1279px) {
+    .header {
+        padding: 18px 30px;
+    }
+
+    .header__links {
+        display: none;
+    }
+
+    .header__menu-button {
+        display: block;
+
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .header {
+        padding: 18px 14px;
+    }
+
+    .header__menu-button {
+        width: 40px;
+        height: 43px;
+    }
+
+    .header__signup-button {
+        font-size: 10px;
+        line-height: 1.6;
+        margin-right: 14px;
+    }
+
+    .header__singnin-button {
+        font-size: 10px;
+        line-height: 1.6;
+    }
+}
