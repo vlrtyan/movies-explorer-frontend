@@ -13,7 +13,8 @@ function MoviesCardList(props) {
                 />
             ))}
             </div>
-            <button className='card-list__button' type='button' onClick={props.onShowMore}>Ещё</button>
+            {props.movies.length > 0 &&
+            <button className='card-list__button' type='button' onClick={props.onShowMore}>Ещё</button> }
         </main>
     )
 }
