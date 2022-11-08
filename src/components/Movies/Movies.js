@@ -20,8 +20,9 @@ function Movies() {
     const handleSearchMovies = async (input) => {
         setLoading(true);
         localStorage.setItem('input', input);
-        const res = await getMovies()
         try {
+            const res = await getMovies();
+
             const filteredMovies =
                 res.filter((movie) => {
                     if (input === '') {
@@ -31,13 +32,14 @@ function Movies() {
                         return String(movie.nameRU.toLowerCase()).includes(input);
                     }
                 });
+            localStorage.setItem('movies', JSON.stringify(filteredMovies));
             setMovies(filteredMovies);
             setMoviesOnScreen(filteredMovies.splice(0, numberOfMoviesOnScreen()[0]));
-            localStorage.setItem('movies', JSON.stringify(filteredMovies));
         } catch (err) {
-            console.log(err)
+            console.log(err);
+            localStorage.removeItem('movies');
         } finally {
-            setLoading(false)
+            setLoading(false);
         }
     }
 
@@ -73,9 +75,11 @@ function Movies() {
         getSavedMovies()
             .then(res => setSavedMovies(res))
             .catch(err => console.log(err));
-        const storage = localStorage.getItem('movies');
-        if (storage) {
-            // setLoading(false);
+        if (localStorage.getItem('movies')) {
+            const storedMovies = JSON.parse(localStorage.getItem('movies'));
+            setLoading(false);
+            setMovies(storedMovies);
+            setMoviesOnScreen(storedMovies.splice(0, numberOfMoviesOnScreen()[0]));
         }
     }, [])
 
