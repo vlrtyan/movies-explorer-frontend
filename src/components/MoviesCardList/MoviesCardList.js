@@ -9,7 +9,10 @@ function MoviesCardList(props) {
                 {props.moviesOnScreen.map((movie) => (
                 <MoviesCard 
                 movie={movie}
-                key={movie.id}
+                key={movie.id || movie.movieId}
+                savedMovies={props.savedMovies}
+                onMovieSave={props.onMovieSave}
+                onMovieDelete={props.onMovieDelete}
                 />
             ))}
             </div>

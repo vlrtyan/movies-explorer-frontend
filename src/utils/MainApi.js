@@ -1,4 +1,5 @@
-const URL = 'api.movies.vlrtyan.nomoredomains.icu';
+const URL = 'https://api.movies.vlrtyan.nomoredomains.icu';
+
 const getResponseData = (res) => {
     if (res.ok) {
         return res.json();
@@ -7,11 +8,12 @@ const getResponseData = (res) => {
     }
 }
 const getToken = () => {
-    return `Bearer ${localStorage.getItem('token')}`
+    return 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzVmNzFkNjkyNDMwODA4N2U3Y2JjOTAiLCJpYXQiOjE2Njc4OTE0NDIsImV4cCI6MTY2ODQ5NjI0Mn0.S7pGXIKlLJOpaIiuneqfsjz6wxgGQ8tWUqneatM2eaE'
+    // return `Bearer ${localStorage.getItem('token')}`
 }
 
 export const getUser = () => {
-    return fetch(`${URL}/me`, {
+    return fetch(`${URL}/users/me`, {
         headers: {
             'Authorization': getToken()
         }
@@ -20,7 +22,7 @@ export const getUser = () => {
 }
 
 export const editUser = ({ name, email }) => {
-    return fetch(`${URL}/me`, {
+    return fetch(`${URL}/users/me`, {
         method: 'PATCH',
         headers: {
             'Authorization': getToken(),
@@ -51,17 +53,17 @@ export const saveMovie = (data) => {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            country: data.counrtry, 
+            country: data.country, 
             director: data.director, 
             duration: data.duration, 
             year: data.year, 
             description: data.description, 
-            image: data.image.url, 
+            image: `https://api.nomoreparties.co${data.image.url}`, 
             trailerLink: data.trailerLink, 
             nameRU: data.nameRU, 
             nameEN: data.nameEN,
-            thumbnail: data.thumbnail, 
-            movieId: data.id
+            thumbnail: `https://api.nomoreparties.co${data.image.url}`, 
+            movieId: data.id.toString()
         })
     })
         .then(getResponseData);
