@@ -100,22 +100,30 @@ function App() {
     <>
       <Switch>
         <Route exact path='/'>
-          <Header />
+          <Header 
+          loggedIn={loggedIn}
+          />
           <Main />
           <Footer />
         </Route>
         <ProtectedRoute path='/movies' loggedIn={loggedIn}>
-          <Header />
+          <Header 
+          loggedIn={loggedIn}
+          />
           <Movies />
           <Footer />
         </ProtectedRoute>
         <ProtectedRoute path='/saved-movies' loggedIn={loggedIn}>
-          <Header />
+          <Header 
+          loggedIn={loggedIn}
+          />
           <SavedMovies />
           <Footer />
         </ProtectedRoute>
         <ProtectedRoute path='/profile' loggedIn={loggedIn}>
-          <Header />
+          <Header 
+          loggedIn={loggedIn}
+          />
           <Profile
             loggedIn={loggedIn}
             logout={onLogout}
