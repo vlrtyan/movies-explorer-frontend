@@ -15,7 +15,7 @@ import PageNotFound from '../PageNotFound/PageNotFound';
 import Navigation from '../Navigation/Navigation';
 
 import { checkToken, authorize, register } from '../../auth';
-import { getUser } from '../../utils/MainApi';
+import { getUser, editUser } from '../../utils/MainApi';
 
 function App() {
   const history = useHistory();
@@ -71,11 +71,21 @@ function App() {
           name: formData.name,
           email: formData.email
         })
-        // getInitialData();
       })
       .catch((err) => {
         console.log(err);
       });
+  }
+
+  const handleEdit = (formData) => {
+    editUser({name: formData.name, email: formData.email})
+      .then((res) => {
+        setUser({
+          name: formData.name,
+          email: formData.email
+        })
+      })
+      .catch(err => console.log(err))
   }
 
   const onLogout = () => {
@@ -84,7 +94,6 @@ function App() {
     localStorage.removeItem('movies');
     localStorage.removeItem('input');
     history.push('/signin');
-    // setCards([]);
   }
 
   return (
@@ -111,6 +120,7 @@ function App() {
             loggedIn={loggedIn}
             logout={onLogout}
             user={user}
+            handleEdit={handleEdit}
           />
         </ProtectedRoute>
         <Route path='/signup'>
