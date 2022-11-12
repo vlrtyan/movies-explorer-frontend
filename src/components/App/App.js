@@ -1,7 +1,8 @@
 import React from 'react';
 import './App.css';
 import '../../vendor/fonts/inter-web/inter.css';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, useHistory } from 'react-router-dom';
+import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import Main from '../Main/Main';
@@ -13,7 +14,79 @@ import SavedMovies from '../SavedMovies/SavedMovies';
 import PageNotFound from '../PageNotFound/PageNotFound';
 import Navigation from '../Navigation/Navigation';
 
+import { checkToken, authorize, register } from '../../auth';
+import { getUser } from '../../utils/MainApi';
+
 function App() {
+  const history = useHistory();
+  const [loggedIn, setLoggedIn] = React.useState(false);
+  const [user, setUser] = React.useState({
+    name: '',
+    email: ''
+  });
+
+  React.useEffect(() => {
+    if (localStorage.getItem('token')) {
+      const token = localStorage.getItem('token');
+      checkToken(token)
+        .then((res) => {
+          if (res) {
+            setLoggedIn(true);
+          }
+        })
+    }
+  }, []);
+
+  React.useEffect(() => {
+    if (loggedIn) {
+      history.push('/movies');
+      getUser()
+        .then((res) => {
+          setUser({
+            name: res.data.name,
+            email: res.data.email
+          })
+        })
+        .catch(err => console.log(err));
+    }
+  }, [loggedIn])
+
+  const handleRegistration = (formData) => {
+    register(formData.name, formData.email, formData.password)
+      .then((res) => {
+        history.push('/signin');
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
+  const handleLogin = (formData) => {
+    authorize(formData.email, formData.password)
+      .then((data) => {
+        localStorage.setItem('token', data.token);
+        setLoggedIn(true);
+        history.push('/movies');
+        setUser({
+          name: formData.name,
+          email: formData.email
+        })
+        // getInitialData();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
+  const onLogout = () => {
+    setLoggedIn(false);
+    localStorage.removeItem('token');
+    localStorage.removeItem('movies');
+    localStorage.removeItem('input');
+    history.push('/signin');
+    // setCards([]);
+  }
+
   return (
     <>
       <Switch>
@@ -22,25 +95,33 @@ function App() {
           <Main />
           <Footer />
         </Route>
-        <Route path='/movies'>
+        <ProtectedRoute path='/movies' loggedIn={loggedIn}>
           <Header />
           <Movies />
           <Footer />
-        </Route>
-        <Route path='/saved-movies'>
+        </ProtectedRoute>
+        <ProtectedRoute path='/saved-movies' loggedIn={loggedIn}>
           <Header />
           <SavedMovies />
           <Footer />
-        </Route>
-        <Route path='/profile'>
+        </ProtectedRoute>
+        <ProtectedRoute path='/profile' loggedIn={loggedIn}>
           <Header />
-          <Profile />
-        </Route>
+          <Profile
+            loggedIn={loggedIn}
+            logout={onLogout}
+            user={user}
+          />
+        </ProtectedRoute>
         <Route path='/signup'>
-          <Register />
+          <Register
+            handleRegistration={handleRegistration}
+          />
         </Route>
         <Route path='/signin'>
-          <Login />
+          <Login
+            handleLogin={handleLogin}
+          />
         </Route>
         <Route path='*'>
           <PageNotFound />

@@ -15,7 +15,7 @@ function SearchForm(props) {
     }
 
     React.useEffect(() => {
-        pathname === '/movies' ? setSearch(localStorage.getItem('input')) : setSearch('');
+        pathname === '/movies' && localStorage.getItem('input') ? setSearch(localStorage.getItem('input')) : setSearch('');
     }, [])
 
     return (

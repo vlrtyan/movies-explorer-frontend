@@ -8,8 +8,7 @@ const getResponseData = (res) => {
     }
 }
 const getToken = () => {
-    return 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzVmNzFkNjkyNDMwODA4N2U3Y2JjOTAiLCJpYXQiOjE2Njc4OTE0NDIsImV4cCI6MTY2ODQ5NjI0Mn0.S7pGXIKlLJOpaIiuneqfsjz6wxgGQ8tWUqneatM2eaE'
-    // return `Bearer ${localStorage.getItem('token')}`
+    return `Bearer ${localStorage.getItem('token')}`
 }
 
 export const getUser = () => {

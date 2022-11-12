@@ -1,4 +1,4 @@
-const URL = 'api.movies.vlrtyan.nomoredomains.icu';
+const URL = 'https://api.movies.vlrtyan.nomoredomains.icu';
 
 export const HEADERS = {
     'Accept': 'application/json',
@@ -13,12 +13,12 @@ const getResponseData = (res) => {
     }
 }
 
-export const register = (email, password) => {
+export const register = (name, email, password) => {
     return fetch(`${URL}/signup`, {
         method: 'POST',
         headers: HEADERS,
         body: JSON.stringify({
-            email, password
+            name, email, password
         })
     })
         .then(getResponseData)
