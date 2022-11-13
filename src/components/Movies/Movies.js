@@ -10,7 +10,9 @@ function Movies() {
     const [movies, setMovies] = React.useState([]);
     const [moviesOnScreen, setMoviesOnScreen] = React.useState([]);
     const [savedMovies, setSavedMovies] = React.useState([]);
+    const [shortMovies, setShortMovies] = React.useState([]);
     const [loading, setLoading] = React.useState(true);
+    const [slider, setSlider] = React.useState(false);
 
     const handleShowMore = () => {
         const moreMovies = moviesOnScreen.concat(movies.splice(0, numberOfMoviesOnScreen()[1]));
@@ -22,7 +24,6 @@ function Movies() {
         localStorage.setItem('input', input);
         try {
             const res = await getMovies();
-
             const filteredMovies =
                 res.filter((movie) => {
                     if (input === '') {
@@ -32,12 +33,18 @@ function Movies() {
                         return String(movie.nameRU.toLowerCase()).includes(input);
                     }
                 });
+            const shorts = filteredMovies.filter((movie) => {
+                return movie.duration <= 40
+            })
+
             localStorage.setItem('movies', JSON.stringify(filteredMovies));
             setMovies(filteredMovies);
             setMoviesOnScreen(filteredMovies.splice(0, numberOfMoviesOnScreen()[0]));
+            setShortMovies(shorts.splice(0, numberOfMoviesOnScreen()[0]));
         } catch (err) {
             console.log(err);
             localStorage.removeItem('movies');
+            localStorage.removeItem('shortsSlider');
         } finally {
             setLoading(false);
         }
@@ -58,7 +65,6 @@ function Movies() {
             } catch (err) {
                 console.log(err)
             }
-            // setSavedMovies(getMyMovies());    
         }
     }
 
@@ -80,6 +86,7 @@ function Movies() {
             setLoading(false);
             setMovies(storedMovies);
             setMoviesOnScreen(storedMovies.splice(0, numberOfMoviesOnScreen()[0]));
+            setShortMovies(storedMovies.filter(movie => movie.duration <= 40).splice(0, numberOfMoviesOnScreen()[0]));
         }
     }, [])
 
@@ -87,14 +94,18 @@ function Movies() {
         <>
             <SearchForm
                 onSearchMovies={handleSearchMovies}
+                slider={slider}
+                setSlider={setSlider}
             />
             {loading && <Preloader />}
             {!loading && <MoviesCardList
                 movies={movies}
                 moviesOnScreen={moviesOnScreen}
                 savedMovies={savedMovies}
+                shortMovies={shortMovies}
                 onShowMore={handleShowMore}
                 onMovieSave={handleSaveMovie}
+                slider={slider}
             />}
         </>
     )

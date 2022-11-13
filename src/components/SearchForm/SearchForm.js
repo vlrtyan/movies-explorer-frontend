@@ -9,14 +9,22 @@ function SearchForm(props) {
     const handleSearchChange = (e) => {
         setSearch(e.target.value.toLowerCase());
     }
+    const handleSliderChange = () => {
+        props.setSlider(!props.slider);
+        localStorage.setItem('shortsSlider', !props.slider);
+    }
+
     const handleSearchSubmit = (e) => {
         e.preventDefault();
         props.onSearchMovies(search);
     }
 
     React.useEffect(() => {
+        pathname === '/movies' && localStorage.getItem('shortsSlider') && props.setSlider(localStorage.getItem('shortsSlider') === 'true');
         pathname === '/movies' && localStorage.getItem('input') ? setSearch(localStorage.getItem('input')) : setSearch('');
     }, [])
+
+    console.log(localStorage.getItem('shortsSlider'), props.slider)
 
     return (
         <section className='search'>
@@ -36,7 +44,13 @@ function SearchForm(props) {
                 </div>
                 <div className='switch'>
                     <label className='switch__name' htmlFor='slider'>Короткометражки</label>
-                    <input className='switch__checkbox' type='checkbox' id='slider' />
+                    <input
+                        className='switch__checkbox'
+                        type='checkbox'
+                        id='slider'
+                        checked={props.slider}
+                        onChange={handleSliderChange}
+                    />
                     <label className='switch__slider' htmlFor='slider'></label>
                 </div>
             </form>

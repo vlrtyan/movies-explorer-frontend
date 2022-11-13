@@ -93,6 +93,7 @@ function App() {
     localStorage.removeItem('token');
     localStorage.removeItem('movies');
     localStorage.removeItem('input');
+    localStorage.removeItem('shortsSlider');
     history.push('/signin');
   }
 
