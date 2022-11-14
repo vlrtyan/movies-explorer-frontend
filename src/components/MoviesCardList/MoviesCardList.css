@@ -9,7 +9,7 @@
 
 .card-list__grid {
     max-width: 1140px;
-    min-height: 218px;
+    /* min-height: 218px; */
     margin: 70px auto 80px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));

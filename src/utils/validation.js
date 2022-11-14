@@ -9,7 +9,7 @@ export const validation = (name, value) => {
         }
         else if (!nameSymbols.test(value)) {
             return 'Имя содержит недопустимые символы'
-        } 
+        }
     } else if (name === 'email') {
         if (!value) {
             return 'Поле не может быть пустым'
@@ -23,6 +23,11 @@ export const validation = (name, value) => {
         }
         else if (!value || value.length < 6) {
             return 'Пароль должен содержать не менее 6 символов'
+        }
+    }
+    else if (name === 'search') {
+        if (!value) {
+            return 'Поле не может быть пустым'
         }
     }
 }

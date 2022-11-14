@@ -1,30 +1,35 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 import './SearchForm.css';
+import { validation } from '../../utils/validation';
 
 function SearchForm(props) {
     const { pathname } = useLocation();
     const [search, setSearch] = React.useState('');
+    const [slider, setSlider] = React.useState(false);
+    const [errors, setErrors] = React.useState({ search: '' });
+    const isValid = errors.search === undefined;
 
     const handleSearchChange = (e) => {
-        setSearch(e.target.value.toLowerCase());
+        const { name, value } = e.target;
+        setSearch(value.toLowerCase());
+        setErrors({ ...errors, [name]: validation(name, value) });
     }
     const handleSliderChange = () => {
-        props.setSlider(!props.slider);
-        localStorage.setItem('shortsSlider', !props.slider);
+        localStorage.setItem('shortsSlider', !slider);
+        setSlider(!slider);
+        props.onSearchMovies(search, !slider);
     }
 
     const handleSearchSubmit = (e) => {
         e.preventDefault();
-        props.onSearchMovies(search);
+        props.onSearchMovies(search, slider);
     }
 
     React.useEffect(() => {
-        pathname === '/movies' && localStorage.getItem('shortsSlider') && props.setSlider(localStorage.getItem('shortsSlider') === 'true');
+        pathname === '/movies' && localStorage.getItem('shortsSlider') && setSlider(localStorage.getItem('shortsSlider') === 'true');
         pathname === '/movies' && localStorage.getItem('input') ? setSearch(localStorage.getItem('input')) : setSearch('');
     }, [])
-
-    console.log(localStorage.getItem('shortsSlider'), props.slider)
 
     return (
         <section className='search'>
@@ -33,14 +38,18 @@ function SearchForm(props) {
                     <input
                         className='search__input'
                         type='text'
-                        name='movie'
+                        name='search'
                         id='movie'
                         placeholder='Фильм'
                         value={search}
                         required
                         onChange={handleSearchChange}
                     />
-                    <button className='search__icon' type='submit'></button>
+                    <button
+                        className={`search__icon ${isValid ? 'search__icon_enabled' : ''}`}
+                        type='submit'
+                        disabled={!isValid}
+                    ></button>
                 </div>
                 <div className='switch'>
                     <label className='switch__name' htmlFor='slider'>Короткометражки</label>
@@ -48,7 +57,7 @@ function SearchForm(props) {
                         className='switch__checkbox'
                         type='checkbox'
                         id='slider'
-                        checked={props.slider}
+                        checked={slider}
                         onChange={handleSliderChange}
                     />
                     <label className='switch__slider' htmlFor='slider'></label>
