@@ -152,15 +152,15 @@
         margin: 0 auto 80px;
     }
 
+    .register__error-message:last-of-type {
+        margin-bottom: 133px;
+    }
+
     .register-redirect__text {
         font-size: 12px;
     }
     
     .register-redirect__link {
         font-size: 12px;
-    }
-
-    .register__error-message {
-        margin-bottom: 157px;
     }
 }

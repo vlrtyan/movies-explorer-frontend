@@ -9,7 +9,6 @@
 
 .card-list__grid {
     max-width: 1140px;
-    /* min-height: 218px; */
     margin: 70px auto 80px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
@@ -45,7 +44,6 @@
 
     .card-list__grid {
         max-width: 708px;
-        min-height: 257px;
         margin-bottom: 50px;
         grid-template-columns: repeat(auto-fit, minmax(257px, 1fr));
         row-gap: 36px;
@@ -60,7 +58,6 @@
 
     .card-list__grid {
         max-width: 310px;
-        min-height: 235px;
         grid-template-columns: repeat(auto-fit, minmax(235px, 1fr));
         row-gap: 20px;
     }

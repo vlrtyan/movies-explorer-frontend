@@ -1,17 +1,17 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import './Navigation.css';
 import accountIcon from '../../images/account-icon.svg';
 
-function Navigation() {
+function Navigation(props) {
     return (
-        <section className='navigation'>
+        <section className={`navigation ${props.isMenuOpened ? 'navigation_opened' : ''}`}>
             <div className='navigation__container'>
-                <button className='navigation__close-button' type='button'></button>
+                <button className='navigation__close-button' type='button' onClick={props.onCloseButtonClick}></button>
                 <div className='navigation__menu'>
-                    <Link className='navigation__link navigation__link_clicked' to='/'>Главная</Link>
-                    <Link className='navigation__link' to='/movies'>Фильмы</Link>
-                    <Link className='navigation__link' to='/saved-movies'>Сохранённые фильмы</Link>
+                    <NavLink className='navigation__link' activeClassName='navigation__link_clicked' exact to='/'>Главная</NavLink>
+                    <NavLink className='navigation__link' activeClassName='navigation__link_clicked' to='/movies'>Фильмы</NavLink>
+                    <NavLink className='navigation__link' activeClassName='navigation__link_clicked' to='/saved-movies'>Сохранённые фильмы</NavLink>
                 </div>
                 <div className='navigation__account'>
                     <Link className='navigation__link navigation__link_type_account' to='/profile'>Аккаунт</Link>

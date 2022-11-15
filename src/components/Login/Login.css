@@ -147,8 +147,8 @@
         margin: 0 auto 80px;
     }
 
-    .login__input:last-of-type {
-        margin-bottom: 267px;
+    .login__error-message:last-of-type {
+        margin-bottom: 233px;
     }
 
     .login-redirect__text {
@@ -157,9 +157,5 @@
 
     .login-redirect__link {
         font-size: 12px;
-    }
-
-    .login__error-message {
-        margin-bottom: 157px;
     }
 }

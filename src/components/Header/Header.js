@@ -1,17 +1,19 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import './Header.css';
 import logo from '../../images/logo.svg';
 import accountIcon from '../../images/account-icon.svg';
 import menuIcon from '../../images/menu-icon.svg';
 
-function Header({ loggedIn }) {
+function Header(props) {
+    const { pathname } = useLocation();
+
     return (
-        <header className={`header ${loggedIn ? '' : 'header_color_pink'}`}>
+        <header className={`header ${pathname !== '/' ? '' : 'header_color_pink'}`}>
             <Link to='/'>
                 <img className='logo' src={logo} alt='Буква С' />
             </Link>
-            {loggedIn ?
+            {props.loggedIn ?
                 <nav className='header__navigation header__navigation_logged-in'>
                     <div className='header__links'>
                         <div className='header__films'>
@@ -23,7 +25,7 @@ function Header({ loggedIn }) {
                             <img className='account-link__icon' src={accountIcon} alt='Иконка человека' />
                         </div>
                     </div>
-                    <img className='header__menu-button' src={menuIcon} alt='Иконка "Гамбургер"' />
+                    <img className='header__menu-button' src={menuIcon} alt='Иконка "Гамбургер"' onClick={props.onMenuClick} />
                 </nav>
                 :
                 <nav className='header__navigation'>

@@ -25,6 +25,7 @@ function App() {
     name: '',
     email: ''
   });
+  const [isMenuOpened, setMenuOpened] = React.useState(false);
 
   React.useEffect(() => {
     if (localStorage.getItem('token')) {
@@ -50,7 +51,7 @@ function App() {
         })
         .catch(err => console.log(err));
     }
-  }, [loggedIn])
+  }, [history, loggedIn])
 
   const handleRegistration = (formData) => {
     register(formData.name, formData.email, formData.password)
@@ -98,12 +99,17 @@ function App() {
     history.push('/signin');
   }
 
+  const handleMenuCLick = () => {
+    setMenuOpened(!isMenuOpened);
+  }
+
   return (
     <CurrentUserContext.Provider value={user}>
       <Switch>
         <Route exact path='/'>
           <Header
             loggedIn={loggedIn}
+            onMenuClick={handleMenuCLick}
           />
           <Main />
           <Footer />
@@ -111,6 +117,7 @@ function App() {
         <ProtectedRoute path='/movies' loggedIn={loggedIn}>
           <Header
             loggedIn={loggedIn}
+            onMenuClick={handleMenuCLick}
           />
           <Movies />
           <Footer />
@@ -118,6 +125,7 @@ function App() {
         <ProtectedRoute path='/saved-movies' loggedIn={loggedIn}>
           <Header
             loggedIn={loggedIn}
+            onMenuClick={handleMenuCLick}
           />
           <SavedMovies />
           <Footer />
@@ -125,6 +133,7 @@ function App() {
         <ProtectedRoute path='/profile' loggedIn={loggedIn}>
           <Header
             loggedIn={loggedIn}
+            onMenuClick={handleMenuCLick}
           />
           <Profile
             loggedIn={loggedIn}
@@ -146,7 +155,9 @@ function App() {
           <PageNotFound />
         </Route>
       </Switch>
-      <Navigation />
+      <Navigation
+        isMenuOpened={isMenuOpened}
+        onCloseButtonClick={handleMenuCLick} />
     </CurrentUserContext.Provider>
   );
 }
