@@ -30,7 +30,9 @@ function Register({handleRegistration}) {
 
     return (
         <main className='register'>
-            <img className='register__logo' src={logo} alt='Буква С' />
+            <Link className='register__logo' to='/'>
+                <img src={logo} alt='Буква С' />
+            </Link>
             <p className='register__greeting'>Добро пожаловать!</p>
             <form className='register__form' onSubmit={handleSubmit}>
                 <label className='register__input-label'>Имя</label>

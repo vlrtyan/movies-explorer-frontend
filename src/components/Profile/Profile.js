@@ -1,8 +1,10 @@
 import React from 'react';
 import './Profile.css';
 import { validation } from '../../utils/validation';
+import CurrentUserContext from '../../contexts/CurrentUserContext';
 
-function Profile({ handleEdit, user, logout }) {
+function Profile({ handleEdit, logout }) {
+    const user = React.useContext(CurrentUserContext);
     const [formData, setFormData] = React.useState({
         name: user.name,
         email: user.email

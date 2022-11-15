@@ -30,7 +30,9 @@ function Login({ handleLogin }) {
 
     return (
         <main className='login'>
-            <img className='login__logo' src={logo} alt='Буква С' />
+            <Link className='login__logo' to='/'>
+                <img src={logo} alt='Буква С' />
+            </Link >
             <p className='login__greeting'>Рады видеть!</p>
             <form className='login__form' onSubmit={handleSubmit}>
                 <label className='login__input-label'>E-mail</label>

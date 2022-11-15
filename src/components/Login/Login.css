@@ -4,6 +4,11 @@
     margin: 0 auto 40px 0;
 }
 
+.login__logo:hover {
+    opacity: 0.8;
+    transition: 0.5s;
+}
+
 .login {
     width: 396px;
     margin: 70px auto;

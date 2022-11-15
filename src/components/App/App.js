@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import '../../vendor/fonts/inter-web/inter.css';
 import { Route, Switch, useHistory } from 'react-router-dom';
+import CurrentUserContext from '../../contexts/CurrentUserContext';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
@@ -78,7 +79,7 @@ function App() {
   }
 
   const handleEdit = (formData) => {
-    editUser({name: formData.name, email: formData.email})
+    editUser({ name: formData.name, email: formData.email })
       .then((res) => {
         setUser({
           name: formData.name,
@@ -98,37 +99,36 @@ function App() {
   }
 
   return (
-    <>
+    <CurrentUserContext.Provider value={user}>
       <Switch>
         <Route exact path='/'>
-          <Header 
-          loggedIn={loggedIn}
+          <Header
+            loggedIn={loggedIn}
           />
           <Main />
           <Footer />
         </Route>
         <ProtectedRoute path='/movies' loggedIn={loggedIn}>
-          <Header 
-          loggedIn={loggedIn}
+          <Header
+            loggedIn={loggedIn}
           />
           <Movies />
           <Footer />
         </ProtectedRoute>
         <ProtectedRoute path='/saved-movies' loggedIn={loggedIn}>
-          <Header 
-          loggedIn={loggedIn}
+          <Header
+            loggedIn={loggedIn}
           />
           <SavedMovies />
           <Footer />
         </ProtectedRoute>
         <ProtectedRoute path='/profile' loggedIn={loggedIn}>
-          <Header 
-          loggedIn={loggedIn}
+          <Header
+            loggedIn={loggedIn}
           />
           <Profile
             loggedIn={loggedIn}
             logout={onLogout}
-            user={user}
             handleEdit={handleEdit}
           />
         </ProtectedRoute>
@@ -147,7 +147,7 @@ function App() {
         </Route>
       </Switch>
       <Navigation />
-    </>
+    </CurrentUserContext.Provider>
   );
 }
 
