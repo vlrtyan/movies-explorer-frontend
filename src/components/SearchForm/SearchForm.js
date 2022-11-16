@@ -29,7 +29,7 @@ function SearchForm(props) {
     React.useEffect(() => {
         pathname === '/movies' && localStorage.getItem('shortsSlider') && setSlider(localStorage.getItem('shortsSlider') === 'true');
         pathname === '/movies' && localStorage.getItem('input') ? setSearch(localStorage.getItem('input')) : setSearch('');
-    }, [])
+    }, [pathname])
 
     return (
         <section className='search'>
