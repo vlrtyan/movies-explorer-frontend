@@ -4,6 +4,7 @@ import '../../vendor/fonts/inter-web/inter.css';
 import { Route, Switch, useHistory } from 'react-router-dom';
 import CurrentUserContext from '../../contexts/CurrentUserContext';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
+import AuthorizedRoute from '../AuthorizedRoute/AuthorizedRoute';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import Main from '../Main/Main';
@@ -27,37 +28,17 @@ function App() {
   });
   const [isMenuOpened, setMenuOpened] = React.useState(false);
 
-  React.useEffect(() => {
+  const handleCheckToken = () => {
     if (localStorage.getItem('token')) {
-      handleCheckToken();
-    }
-  }, []);
-
-  React.useEffect(() => {
-    handleCheckToken();
-    if (loggedIn) {
-      getUser()
+      const token = localStorage.getItem('token');
+      checkToken(token)
         .then((res) => {
-          setUser({
-            name: res.data.name,
-            email: res.data.email
-          })
+          if (res) {
+            setLoggedIn(true);
+          }
         })
         .catch(err => console.log(err));
     }
-  }, [loggedIn])
-
-  const handleCheckToken = () => {
-    const token = localStorage.getItem('token');
-    checkToken(token)
-      .then((res) => {
-        if (res) {
-          setLoggedIn(true);
-        } else {
-          onLogout();
-        }
-      })
-      .catch(err => console.log(err));
   }
 
   const handleRegistration = (formData) => {
@@ -74,7 +55,7 @@ function App() {
     authorize(formData.email, formData.password)
       .then((data) => {
         localStorage.setItem('token', data.token);
-        setLoggedIn(true);
+        handleCheckToken();
         history.push('/movies');
         setUser({
           name: formData.name,
@@ -100,7 +81,6 @@ function App() {
 
   const onLogout = () => {
     setLoggedIn(false);
-    setUser({});
     localStorage.removeItem('token');
     localStorage.removeItem('movies');
     localStorage.removeItem('input');
@@ -111,6 +91,24 @@ function App() {
   const handleMenuCLick = () => {
     setMenuOpened(!isMenuOpened);
   }
+
+  React.useEffect(() => {
+    handleCheckToken();
+  })
+
+  React.useEffect(() => {
+    handleCheckToken();
+    if (loggedIn) {
+      getUser()
+        .then((res) => {
+          setUser({
+            name: res.data.name,
+            email: res.data.email
+          })
+        })
+        .catch(err => console.log(err));
+    }
+  }, [loggedIn])
 
   return (
     <CurrentUserContext.Provider value={user}>
@@ -123,7 +121,7 @@ function App() {
           <Main />
           <Footer />
         </Route>
-        <ProtectedRoute path='/movies' loggedIn={loggedIn}>
+        <ProtectedRoute loggedIn={loggedIn} path='/movies'>
           <Header
             loggedIn={loggedIn}
             onMenuClick={handleMenuCLick}
@@ -131,7 +129,7 @@ function App() {
           <Movies />
           <Footer />
         </ProtectedRoute>
-        <ProtectedRoute path='/saved-movies' loggedIn={loggedIn}>
+        <ProtectedRoute loggedIn={loggedIn} path='/saved-movies'>
           <Header
             loggedIn={loggedIn}
             onMenuClick={handleMenuCLick}
@@ -139,7 +137,7 @@ function App() {
           <SavedMovies />
           <Footer />
         </ProtectedRoute>
-        <ProtectedRoute path='/profile' loggedIn={loggedIn}>
+        <ProtectedRoute loggedIn={loggedIn} path='/profile'>
           <Header
             loggedIn={loggedIn}
             onMenuClick={handleMenuCLick}
@@ -150,16 +148,16 @@ function App() {
             handleEdit={handleEdit}
           />
         </ProtectedRoute>
-        <Route path='/signup'>
+        <AuthorizedRoute loggedIn={loggedIn} path='/signup'>
           <Register
             handleRegistration={handleRegistration}
           />
-        </Route>
-        <Route path='/signin'>
+        </AuthorizedRoute>
+        <AuthorizedRoute loggedIn={loggedIn} path='/signin'>
           <Login
             handleLogin={handleLogin}
           />
-        </Route>
+        </AuthorizedRoute>
         <Route path='*'>
           <PageNotFound />
         </Route>
