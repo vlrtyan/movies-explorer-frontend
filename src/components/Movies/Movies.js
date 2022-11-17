@@ -33,6 +33,7 @@ function Movies() {
         setError('');
         setLoading(true);
         localStorage.setItem('input', input);
+        localStorage.setItem('shortsSlider', slider);
         try {
             const res = await getMovies();
             const filteredMovies =
@@ -54,6 +55,7 @@ function Movies() {
             setError('Подождите немного и попробуйте ещё раз')
             localStorage.removeItem('movies');
             localStorage.removeItem('shortsSlider');
+            localStorage.removeItem('input');
         } finally {
             setLoading(false);
         }

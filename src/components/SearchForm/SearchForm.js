@@ -16,7 +16,6 @@ function SearchForm(props) {
         setErrors({ ...errors, [name]: validation(name, value) });
     }
     const handleSliderChange = () => {
-        localStorage.setItem('shortsSlider', !slider);
         setSlider(!slider);
         props.onSearchMovies(search, !slider);
     }
