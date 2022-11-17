@@ -29,19 +29,13 @@ function App() {
 
   React.useEffect(() => {
     if (localStorage.getItem('token')) {
-      const token = localStorage.getItem('token');
-      checkToken(token)
-        .then((res) => {
-          if (res) {
-            setLoggedIn(true);
-          }
-        })
+      handleCheckToken();
     }
   }, []);
 
   React.useEffect(() => {
+    handleCheckToken();
     if (loggedIn) {
-      history.push('/movies');
       getUser()
         .then((res) => {
           setUser({
@@ -50,10 +44,21 @@ function App() {
           })
         })
         .catch(err => console.log(err));
-    } else {
-      history.push('/');
     }
-  }, [history, loggedIn])
+  }, [loggedIn])
+
+  const handleCheckToken = () => {
+    const token = localStorage.getItem('token');
+    checkToken(token)
+      .then((res) => {
+        if (res) {
+          setLoggedIn(true);
+        } else {
+          onLogout();
+        }
+      })
+      .catch(err => console.log(err));
+  }
 
   const handleRegistration = (formData) => {
     register(formData.name, formData.email, formData.password)
