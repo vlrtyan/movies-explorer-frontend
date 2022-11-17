@@ -84,9 +84,10 @@ function App() {
   const handleEdit = (formData) => {
     editUser({ name: formData.name, email: formData.email })
       .then((res) => {
+        console.log(res)
         setUser({
-          name: formData.name,
-          email: formData.email
+          name: res.data.name,
+          email: res.data.email
         })
       })
       .catch(err => console.log(err))
@@ -94,6 +95,7 @@ function App() {
 
   const onLogout = () => {
     setLoggedIn(false);
+    setUser({});
     localStorage.removeItem('token');
     localStorage.removeItem('movies');
     localStorage.removeItem('input');
