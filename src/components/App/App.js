@@ -50,13 +50,15 @@ function App() {
           })
         })
         .catch(err => console.log(err));
+    } else {
+      history.push('/signin');
     }
   }, [history, loggedIn])
 
   const handleRegistration = (formData) => {
     register(formData.name, formData.email, formData.password)
       .then((res) => {
-        history.push('/signin');
+        handleLogin(formData);
       })
       .catch((err) => {
         console.log(err);
@@ -96,7 +98,7 @@ function App() {
     localStorage.removeItem('movies');
     localStorage.removeItem('input');
     localStorage.removeItem('shortsSlider');
-    history.push('/signin');
+    history.push('/');
   }
 
   const handleMenuCLick = () => {

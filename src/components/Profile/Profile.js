@@ -11,9 +11,10 @@ function Profile({ handleEdit, logout }) {
     });
     const [errors, setErrors] = React.useState({ name: '', email: '' });
     const isValid =
-        (errors.name === undefined && errors.email === '') ||
-        (errors.email === undefined && errors.name === '') ||
-        (errors.email === undefined && errors.name === undefined)
+        ((errors.name === undefined && errors.email === '') ||
+            (errors.email === undefined && errors.name === '') ||
+            (errors.email === undefined && errors.name === undefined)) &&
+        (formData.name !== user.name || formData.email !== user.email)
 
     const handleChange = (e) => {
         const { name, value } = e.target;

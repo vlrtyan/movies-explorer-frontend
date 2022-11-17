@@ -8,3 +8,5 @@ export const getNumberOfMoviesOnScreen = () => {
         return [5, 2]
     }
 }
+
+export const shortMovieDuration = 40;
