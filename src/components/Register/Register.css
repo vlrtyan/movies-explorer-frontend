@@ -2,6 +2,12 @@
     width: 38px;
     height: 38px;
     margin: 0 auto 40px 0;
+    align-self: flex-start;
+}
+
+.register__logo:hover {
+    opacity: 0.8;
+    transition: 0.5s;
 }
 
 .register {
@@ -34,7 +40,7 @@
 }
 
 .register__input {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     font-weight: 400;
     font-size: 13px;
     line-height: 1;
@@ -54,17 +60,25 @@
 }
 
 .register__error-message {
-    margin: 0 auto 69px 0;
+    height: 12px;
+    margin: 0 auto 10px 0;
     font-weight: 400;
     font-size: 10px;
     line-height: 12px;
     color: #FF4062;
 }
 
+.register__error-message:last-of-type {
+    margin-bottom: 45px;
+}
+
+.register__error-message_shown {
+    visibility: visible;
+}
+
 .register__submit-button {
     width: 100%;
     border: none;
-    background-color: black;
     color: white;
     font-weight: 500;
     font-size: 14px;
@@ -74,9 +88,16 @@
     border-radius: 3px;
     margin: 0 0 16px 0;
     cursor: pointer;
+    background-color: grey;
+    cursor: default;
 }
 
-.register__submit-button:hover{
+.register__submit-button_enabled {
+    background-color: black;
+    cursor: pointer;
+}
+
+.register__submit-button_enabled:hover {
     opacity: 0.8;
     transition: 0.5s;
 }
@@ -131,15 +152,15 @@
         margin: 0 auto 80px;
     }
 
+    .register__error-message:last-of-type {
+        margin-bottom: 133px;
+    }
+
     .register-redirect__text {
         font-size: 12px;
     }
     
     .register-redirect__link {
         font-size: 12px;
-    }
-
-    .register__error-message {
-        margin-bottom: 157px;
     }
 }
