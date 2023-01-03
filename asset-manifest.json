@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/static/css/main.c05c199f.css",
+    "main.js": "/static/js/main.84a14bf0.js",
+    "static/media/avatar.jpg": "/static/media/avatar.3953f41a4a3076d35b11.jpg",
+    "static/media/Inter-Medium.woff": "/static/media/Inter-Medium.9053572c46aeb4b16caa.woff",
+    "static/media/Inter-Regular.woff": "/static/media/Inter-Regular.8c206db99195777c6769.woff",
+    "static/media/Inter-Medium.woff2": "/static/media/Inter-Medium.293fd13dbca5a3e450ef.woff2",
+    "static/media/Inter-Regular.woff2": "/static/media/Inter-Regular.c8ba52b05a9ef10f4758.woff2",
+    "static/media/promo-image.svg": "/static/media/promo-image.6743e5ebdf26b70cee391e00422f1ff9.svg",
+    "static/media/logo.svg": "/static/media/logo.5722866298ac53ac1cfb720ecbcd09b2.svg",
+    "static/media/search-icon.svg": "/static/media/search-icon.999eaf1063708159e8be.svg",
+    "index.html": "/index.html",
+    "static/media/account-icon.svg": "/static/media/account-icon.17c3d87af32a60fa778cdb41042be0d2.svg",
+    "static/media/card-button-remove.svg": "/static/media/card-button-remove.6e75c065778afd6f5659.svg",
+    "static/media/menu-icon.svg": "/static/media/menu-icon.08035af1e508cd8cfed5606a27648836.svg",
+    "static/media/close-button.svg": "/static/media/close-button.80dfd5bd01b8fe0a895e.svg",
+    "main.c05c199f.css.map": "/static/css/main.c05c199f.css.map",
+    "main.84a14bf0.js.map": "/static/js/main.84a14bf0.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c05c199f.css",
+    "static/js/main.84a14bf0.js"
+  ]
+}
