@@ -21,7 +21,7 @@
 
 * [Макет](https://www.figma.com/file/u7U84NjmOwsHdDJ0JhJYZm/Diploma?node-id=932%3A4079)
 
-* [Сайт](https://movies.vlrtyan.nomore.nomoredomains.icu/movies)
+* [Сайт](https://vlrtyan.github.io/movies-explorer-frontend/)
 
 * [Backend-часть](https://github.com/vlrtyan/movies-explorer-api)
 
